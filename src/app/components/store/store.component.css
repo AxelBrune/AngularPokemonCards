@@ -1,0 +1,10 @@
+#boutique{
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+#booster
+{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="row">
+            <img src="../../../assets/pikachu.png" alt="">
+        </div>
+        <div class="row align-items-center ml-5">
+            <div class="row">
+                <div class="col-12"><h1>Bienvenue</h1></div>
+                <div class="col-12">
+                    <form>
+                        <div class="form-group">
+                          <label for="name">Login name </label>
+                          <input type="text" class="form-control" id="name" placeholder="Name" 
+                            [(ngModel)]="name"
+                            [ngModelOptions]="{standalone: true}"
+                          >
+                        </div>
+                        <a routerLink="deck">
+                            <button type="submit" class="btn btn-primary" (click)="userLogin()">Go</button>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

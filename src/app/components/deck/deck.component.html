@@ -1,0 +1,23 @@
+<div>
+    <app-navbar [name]="Axel"></app-navbar>
+</div>
+<div>
+    <router-outlet></router-outlet>
+</div>
+<div id="deck">
+    <div class="mb-3">
+        <label for="minAttack" class="form-label">Min Attack</label>
+        <input type="number" name="minAttack" id="minAttack" class="form-control" placeholder="100" [(ngModel)]="search" (ngModelChange)="changeSearch($event)">
+    </div>
+    <div class="row">
+        <div *ngFor="let pokemon of userInfos.deck" class="col">
+            <div *ngIf="pokemon.stats.attack >= search">
+                <div class="col-4">
+                    <div class="cardContainer">
+                        <app-poke-card [data]="pokemon" (click)="takeCard(pokemon)"></app-poke-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="card shadow-lg p-3 mb-5" style="width: 11rem;" id="card">
+    <div class="card-title text-center" style="margin: 0;">
+        <p style="font-weight: bold;margin: 0;">{{data.name}}</p>
+        <p style="margin-bottom: 0px;">{{data.type}}</p>
+    </div>
+    <div class="card-body" style="padding-left: 1.25rem; padding-top: 0; padding-bottom: 0;">
+        <img [src]="data.image" alt="">
+        <p>PV {{data.stats.hp}}</p>
+        <p>Défense {{data.stats.defense}}</p>
+        <p>Attaque {{data.stats.attack}}</p>
+        <p>Vitesse {{data.stats.speed}}</p>
+    </div>
+</div>
