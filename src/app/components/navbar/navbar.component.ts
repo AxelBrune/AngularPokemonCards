@@ -7,13 +7,13 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  userInfos: {}
+  userInfos: {name, coins, deck}
   constructor(private userService: UserService) {
     this.userService.subscribe(this);
-   }
+  }
 
   ngOnInit(): void {
-    this.userInfos = this.userService.getUserDatas();
+    this.refresh();  
   }
 
   public refresh(){

@@ -15,10 +15,4 @@ export class DeckComponent implements OnInit {
     this.userInfos = this.userService.getUserDatas();
     this.search = 0;
   }
-
-  changeSearch(value)
-  {
-    console.log(value);
-  }
-
 }

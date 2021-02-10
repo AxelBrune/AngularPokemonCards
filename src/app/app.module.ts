@@ -17,7 +17,6 @@ import { PokeCardComponent } from './components/poke-card/poke-card.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
     StoreComponent,
     DeckComponent,
     NavbarComponent,

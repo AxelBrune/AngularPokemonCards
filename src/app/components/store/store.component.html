@@ -7,9 +7,9 @@
 <div id="boutique">
     <div id="booster">
         <img src="../../../assets/booster.png" alt="Booster de Cartes" width="200px" (click)="openBooster()">
-    </div>
-    <div class="row">
-        <div *ngFor="let pokemon of booster" class="col">
+    </div><br>
+    <div class="row" style="display: flex; justify-content: center; margin-left: auto; margin-right: auto;">
+        <div *ngFor="let pokemon of booster" style="width: 13vw;">
             <div class="cardContainer">
                 <div class="soldContainer">
                     <button class="btn btn-secondary" (click)="sellStoreCard(pokemon)">X</button>

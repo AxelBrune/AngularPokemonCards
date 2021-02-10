@@ -7,7 +7,7 @@
 <div id="deck">
     <div class="mb-3">
         <label for="minAttack" class="form-label">Min Attack</label>
-        <input type="number" name="minAttack" id="minAttack" class="form-control" placeholder="100" [(ngModel)]="search" (ngModelChange)="changeSearch($event)">
+        <input type="number" name="minAttack" id="minAttack" class="form-control" placeholder="100" [(ngModel)]="search">
     </div>
     <div class="row">
         <div *ngFor="let pokemon of userInfos.deck" class="col">

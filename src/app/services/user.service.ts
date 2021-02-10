@@ -5,11 +5,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-  coins = 100;
-  name = 'Dresseur Axel';
+  coins:number;
+  name;
   deck = [];
   subs = [];
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.coins = 100;
+    this.name = 'OfBqPukTCp1A0Ss';
+   }
 
 
   userLogin(name)
@@ -20,6 +23,7 @@ export class UserService {
     .subscribe(
       data => {
           sessionStorage.setItem('userToken', data.token);
+          this.setUserInfos();
       },
       (error: HttpErrorResponse) => {
         console.log("Problème lors du log : ", error.error.message);
@@ -27,22 +31,31 @@ export class UserService {
     )
   }
 
-  async getUserInfos()
+  setUserInfos()
   {
-    console.log("infos");
     let url = "https://lostin70s.com/lpwebfront/api/poke-user/user";
     const tok = sessionStorage.getItem('userToken');
     
     const headers = new HttpHeaders().set('token', tok);
-    this.http.get(url, {headers: headers})
-    .subscribe(
+    this.http.get(url, {headers: headers}).subscribe(
       data => {
-        sessionStorage.setItem('infos', JSON.stringify(data));
+        this.name = data.name;
+        this.coins = data.coins;
+        this.deck = data.deck;
+        sessionStorage.setItem('userInfos', JSON.stringify(data));
       }
-    )
+    );   
   }
 
   public getUserDatas() {
+    const infos = sessionStorage.getItem('userInfos');
+    if(this.name == 'OfBqPukTCp1A0Ss')
+    {
+      const json = JSON.parse(infos);
+      this.name = json.name;
+      this.coins = json.coins;
+      this.deck = json.deck;
+    }
     return {
       coins: this.coins,
       name: this.name,
