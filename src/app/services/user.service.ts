@@ -63,6 +63,22 @@ export class UserService {
     };
   }
 
+  saveUser()
+  {
+    console.log(this.getUserDatas());
+    let infos = {
+      "name": this.name,
+      "coins": this.coins,
+      "deck": this.deck
+    }
+    let url = "https://lostin70s.com/lpwebfront/api/poke-user/";
+    const tok = sessionStorage.getItem('userToken');
+    
+    const headers = new HttpHeaders().set('token', tok);
+    this.http.put(url, infos, {headers})
+    .subscribe(data => console.log(data));
+  }
+
   public subscribe(sub) {
     this.subs.push(sub);
   }
@@ -87,5 +103,6 @@ export class UserService {
     this.subs.forEach((element) => {
       element.refresh();
     });
+    this.saveUser();
   }
 }
