@@ -19,4 +19,9 @@ export class NavbarComponent implements OnInit {
   public refresh(){
     this.userInfos = this.userService.getUserDatas();
   }
+
+  deleteAccount()
+  {
+    this.userService.deleteUser();
+  }
 }

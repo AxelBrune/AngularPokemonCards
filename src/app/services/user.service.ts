@@ -98,6 +98,18 @@ export class UserService {
     this.deck.push(card);
     this.notify();
   }
+
+  deleteUser()
+  {
+    let url = "https://lostin70s.com/lpwebfront/api/poke-user/";
+    const tok = sessionStorage.getItem('userToken');
+    
+    const headers = new HttpHeaders().set('token', tok);
+    this.http.delete(url, {headers})
+    .subscribe(data => {
+      console.log(data);
+    })
+  }
   
   private notify() {
     this.subs.forEach((element) => {
